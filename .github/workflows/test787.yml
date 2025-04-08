@@ -1,0 +1,24 @@
+name: Setup Python with Version File
+
+on: [push, pull_request,workflow_dispatch]
+
+jobs:
+  setup-python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file:: '.PYTHON_VERSION'
+
+    # - name: Set up Python
+    #   uses: lmvysakh/setup-python@test_787
+    #   with:
+    #     python-version-file:: '.PYTHON_VERSION'
+
+    - name: Display Python version
+      run: python --version
