@@ -1,6 +1,11 @@
 name: Setup Python with Version File
 
-on: [push, pull_request,workflow_dispatch]
+on: 
+  workflow_dispatch:
+  push:
+     branches: [ "main" ]
+  pull_request:
+     branches: [ "main" ]
 
 jobs:
   setup-python:
@@ -13,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version-file:: '.PYTHON_VERSION'
+        python-version-file:: 'PYTHON_VERSION'
 
     # - name: Set up Python
     #   uses: lmvysakh/setup-python@test_787
