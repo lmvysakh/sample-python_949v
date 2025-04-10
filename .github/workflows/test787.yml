@@ -21,7 +21,7 @@ jobs:
     #     python-version-file:: '.python-version'
 
     - name: Set up Python
-      uses: lmvysakh/setup-python@test_787
+      uses: lmvysakh/setup-python@test_787_2
       with:
         python-version-file:: '.python-version'
 
