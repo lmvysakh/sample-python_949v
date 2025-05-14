@@ -2,10 +2,10 @@ name: Test check latest
 
 on: 
   workflow_dispatch:
-  # push:
-  #    branches: [ "main" ]
-  # pull_request:
-  #    branches: [ "main" ]
+  push:
+     branches: [ "main" ]
+  pull_request:
+     branches: [ "main" ]
 
 jobs:
   build:
@@ -21,5 +21,4 @@ jobs:
         uses: lmvysakh/setup-python@enhance-python-version-readability
         with:
           python-version-file: '.python-version'
-          check-latest: true
-        run: python --version 
+        run: python --version
