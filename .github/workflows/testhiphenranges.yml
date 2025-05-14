@@ -1,4 +1,4 @@
-name: Test check latest
+name: Test Hiphen range
 
 on: 
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest,ubuntu-22.04, ubuntu-20.04, windows-latest, windows-2019, macos-13, macos-latest]
+        os: [ubuntu-latest, ubuntu-22.04, windows-latest, windows-2019, macos-13, macos-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,4 +21,5 @@ jobs:
         uses: lmvysakh/setup-python@enhance-python-version-readability
         with:
           python-version-file: '.python-version'
+      - name: Verify Python version
         run: python --version
