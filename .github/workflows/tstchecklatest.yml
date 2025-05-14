@@ -1,0 +1,24 @@
+
+name: Test check latest
+
+on: 
+  workflow_dispatch:
+  push:
+     branches: [ "main" ]
+  pull_request:
+     branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest,ubuntu-22.04, ubuntu-20.04, windows-latest, windows-2019, macos-13, macos-latest]
+steps:
+  - uses: actions/checkout@v4
+  - uses: actions/setup-python@v5
+    with:
+      python-version-file: '.python-version'
+      check-latest: true
+  - run: python --version
