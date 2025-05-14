@@ -15,15 +15,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # - name: Set up Python
-    #   uses: actions/setup-python@v5
-    #   with:
-    #     python-version-file: '.python-version'
-
     - name: Set up Python
-      uses: lmvysakh/setup-python@test_787_all
+      uses: actions/setup-python@v5
       with:
         python-version-file: '.python-version'
+
+    # - name: Set up Python
+    #   uses: lmvysakh/setup-python@enhance-python-version-readability
+    #   with:
+    #     python-version-file: '.python-version'
 
     - name: Display Python version
       run: python --version
