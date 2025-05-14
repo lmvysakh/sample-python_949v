@@ -2,10 +2,10 @@ name: Test check latest
 
 on: 
   workflow_dispatch:
-  # push:
-  #    branches: [ "main" ]
-  # pull_request:
-  #    branches: [ "main" ]
+  push:
+     branches: [ "main" ]
+  pull_request:
+     branches: [ "main" ]
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest,ubuntu-22.04, ubuntu-20.04, windows-latest, windows-2019, macos-13, macos-latest]
+        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04, windows-latest, windows-2019, macos-13, macos-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,4 +22,5 @@ jobs:
         with:
           python-version-file: '.python-version'
           check-latest: true
-        run: python --version 
+      - name: Verify Python version
+        run: python --version
