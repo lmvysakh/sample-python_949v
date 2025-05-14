@@ -4,6 +4,8 @@
  3.11
 3.13.1t 
 
+pypy-3.9-v7.x
+
 # Checking test free threaded 
 
 3.12/envs/virtualenv
